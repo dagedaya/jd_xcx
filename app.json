@@ -2,13 +2,44 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "goods/goods"
+    "pages/mime/mime",
+    "pages/cart/cart",
+    "pages/order/order",
+    "pages/detail/detail"
   ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle": "black"
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "WeChat",
+      "navigationBarTextStyle": "black"
+    },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-select.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/shopcart.png",
+        "selectedIconPath": "images/shopcart-select.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "订单",
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order-select.png"
+      },
+      {
+        "pagePath": "pages/mime/mime",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my-select.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

@@ -12,3 +12,6 @@
     <text class="user-motto">{{shop_price}}</text>
   </view>
 </view>
+<view>
+    <button type="primary" bindtap="btnLogin" open-type="getUserInfo">登录</button>
+</view>

@@ -10,6 +10,40 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+
+
+  /**
+   * 获取用户信息
+   */
+  //点击登录
+  btnLogin:function(e){
+    wx.login({
+      success (res) {
+        console.log(res)
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: 'http://jd.2004.com/api/getcode',
+            data: {
+              code: res.code
+            },
+            success(res){
+              wx.setStorage({
+                key:"token",
+                data:res.data.data
+              })
+            },
+          })
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+  },
+
+
+
+
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
@@ -18,7 +52,7 @@ Page({
   },
   onLoad: function () {
     //接口获取数据并渲染视图
-    console.log(this);
+    // console.log(this);
     let _this=this;
     //发起网络请求
     wx.request({
@@ -33,7 +67,7 @@ Page({
       success (res) {
         // console.log(res);
         // console.log(res.data)
-        console.log(this);
+        // console.log(this);
         _this.setData({
           goods_name:res.data.goods_name,
           shop_price:res.data.shop_price,
