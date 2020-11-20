@@ -1,0 +1,8 @@
+<!--pages/header/header.wxml-->
+<view class="header" style="background-color:rgba(255,131,71,1)">
+    <view class="main" bindtap="jumpToSearch">
+        <view class="iconf i-search" />
+        <input class="input" disabled="true" placeholder="请输入您要搜索的商品" type="search" placeholder-class="place-holder" />
+        <view class="iconf i-scan" />
+    </view>
+</view>

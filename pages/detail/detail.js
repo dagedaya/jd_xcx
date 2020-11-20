@@ -1,19 +1,80 @@
 // pages/detail/detail.js
-Page({
 
+var WxAutoImage = require('../../static/detailImage.js');
+var app = getApp();
+
+Page({
   /**
    * 页面的初始数据
    */
   data: {
-
+      imgUrls: [
+        '../../images/discount-banner.jpg',
+        '../../images/draw-banner.jpg',
+        '../../images/nursing-banner.jpg',
+      ],
+      indicatorDots: true,
+      vertical: false,
+      autoplay: true,
+      interval: 3000,
+      duration: 1200,
+      iscollect: true
   },
+  collect: function(){
+    this.setData({
+        iscollect: !this.data.iscollect
+    })
+    console.log(this.data.iscollect);
+},
+cusImageLoad: function(e){
+    var that = this;
+    that.setData(WxAutoImage.wxAutoImageCal(e));
+},
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let goods_id = options.id;
+    let access_token=wx.getStorageSync('token')
+    // console.log(goods_id)
+    let _this=this;
+    wx.request({
+        url:'http://jd.2004.com/api/goods_details?id='+goods_id,  //仅为示例，并非真实的接口地址
+        data:{
+          goods_id:goods_id,
+          access_token: access_token,
+        },
+        success(res){
+            console.log(res)
+          _this.setData({
+            // imgUrls:[res.data.goods_img],
+            goods:res.data,
+          })
+        },
+        fail:function () {
+          console.log('请求失败')
+        }
+      })
   },
+    /**
+     * 轮播图切换样式
+     */
+    swipperChange:function(e){
+      this.setData({
+        current:e.detail.current
+      })
+    },
+    preview(e){
+      console.log(e)
+      let imgList=e.currentTarget.dataset.src;
+      wx.previewImage({
+        // current:imgList[0],//当前显示图片的http链接
+        //需要预览的图片http链接列表
+        urls: ["https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1995828843,2702670661&fm=26&gp=0.jpg"],
+      })
+    },
+    
 
   /**
    * 生命周期函数--监听页面初次渲染完成

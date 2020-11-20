@@ -1,0 +1,4 @@
+<!--pages/search/search.wxml-->
+<view class="mod-search">
+    {{text}}
+</view>

@@ -5,14 +5,15 @@
     "pages/mime/mime",
     "pages/cart/cart",
     "pages/order/order",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/search/search"
   ],
-    "window": {
-      "backgroundTextStyle": "light",
-      "navigationBarBackgroundColor": "#fff",
-      "navigationBarTitleText": "WeChat",
-      "navigationBarTextStyle": "black"
-    },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
   "tabBar": {
     "list": [
       {

@@ -1,17 +1,82 @@
 <!--index.wxml-->
+<!--导入公告模块的header-->
+<include src="../../common/header/header.wxml"/>
+
+
 <view class="container">
-  <view class="userinfo">
+
+  <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
-  </view>
-  <view class="usermotto">
+  </view>-->
+
+  <!-- <view class="usermotto">
     <text class="user-motto">{{goods_name}}</text>
     <text class="user-motto">{{shop_price}}</text>
-  </view>
+  </view> -->
+
 </view>
-<view>
+
+<!--<view>
     <button type="primary" bindtap="btnLogin" open-type="getUserInfo">登录</button>
+</view>-->
+
+<!-- <view wx:for="{{goods}}" wx:key="unique">
+    商品名称：{{goods[index].goods_name}}
+    商品价格：{{goods[index].shop_price}}
+</view> -->
+
+<!-- 轮播图 -->
+   <view class="section section_gap swiper_box">
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+      <block wx:for-items="{{images}}">
+        <swiper-item catchtap="gos">
+          <image src="{{item}}" class="slide-image" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+<!-- 分类 -->
+    <view class="page-section-spacing">
+      <!-- scroll -->
+        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="" style="width: 100%"> 
+          <view id="demo1" class="scroll-view-item_H demo-text-1">全部</view>
+          <view id="demo2"  class="scroll-view-item_H demo-text-2">手机</view>
+          <view id="demo3" class="scroll-view-item_H demo-text-3">美食</view>
+          <view id="demo1" class="scroll-view-item_H demo-text-1">食品</view>
+          <view id="demo2"  class="scroll-view-item_H demo-text-2">女装</view>
+          <view id="demo3" class="scroll-view-item_H demo-text-3">男装</view>
+          <view id="demo1" class="scroll-view-item_H demo-text-1">童装</view>
+        </scroll-view>
+      </view>
+
+
+<!-- 列表 -->
+    <!-- <view class="section index-nav">
+      <block wx:for-items="{{navs}}">
+        <view class="l-c-c" catchtap="go" data-type="{{item.text}}">
+          <image src="{{item.image}}" class="slide-image" />
+          <view></view>
+          <text>{{item.text}}</text>
+        </view>
+      </block>
+    </view> -->
+<!-- 列表2 -->
+<view class='list'>
+  <block wx:for='{{list}}' wx:key='list' wx:for-item="item">
+  <view class="list_item" id="{{item.goods_id}}" bindtap="goods_details">
+      <view class='img'>
+        <image src="{{imghref}}{{item.goods_img}}"  mode="scaleToFill"/>
+      </view>
+      <view class='info'>
+        <view class='title' class="moreHide body_head">{{item.goods_name}}</view>
+        <view class='price'>￥{{item.shop_price}}</view>
+      </view>
+      <view class='clear'></view>
+  </view>
+  </block>
 </view>
