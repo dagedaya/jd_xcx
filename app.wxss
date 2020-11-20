@@ -20,13 +20,13 @@
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 20px;
+  font-size: 28px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   float: left;
   margin-top:5px;
-  margin-left:22px;
+  margin-left:16px;
   line-height: 25px;
 }
 
@@ -42,3 +42,27 @@
   content: "\e64d";
 }
 /* 文字图标 结束 */
+/* 分享图标 开始 */
+@font-face {font-family: "iconfont";
+  src: url('//at.alicdn.com/t/font_2218436_ozx9bx4pyoh.eot?t=1605865092928'); /* IE9 */
+  src: url('//at.alicdn.com/t/font_2218436_ozx9bx4pyoh.eot?t=1605865092928#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAALMAAsAAAAABngAAAKAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcAqBAIEJATYCJAMICwYABCAFhG0HMhuxBcgusG3Y00YpMGsYl9r9XvUEABtEEK1l1TsTQnKAGlBFR8WIRzIe5buPMNGPno24iWt+gLRYe5VoNDXo04vnIq1BHnB1PhxvYU6HIAEj1EgCH0ihLaYEaU6u+teA1l2Ju8EBRphoDKmGyeATlyi1ukYcTptAgcwHynEvWmNQF1AXB1JAe2ObrIQybhi74AWeJ1CtHwXcP7q4ThRk9rRAXJu6lCgUHLLMwpVCecPaLN4oU1k8LW7xOvp+/LccBQpliZ11dHWoJja/Rk5Uikuxy4DASUCby5AwC5CJs8bAgbRgNFh1IGMYcKz04BdLC/TiqBrB/jo7tRb0Qu4z8Tz+o4YLeKyuJgDmJj2NmMieeY2k8lrNp5u7n5/ddu+Qztfjx3uctfbU4TZ/55fauf/+Rh6Z16la98u6Vu4vpx9SdafQbZed8X8hd9yGrNW2Uh05l9iwf5a2U18EgrfjjyjU13+VNRn8/I+O1NkwE5U7NgY/iDewIRsCW1dkjdfYWpg4cVm1apRgS7PnVGXb3URCpbYJpgp9GZJKo8RMnUWZGqsoV2kL1WbYm2u0KKVFrsK0BiA02qBQ7wZJo5mYqQ+UafdFucZIo9pFtOxZYzzM0h6hxKiC/ASm4nuaa+BSnH6J+p0jUV4Q0W+RItMNE4Yrh4/RQ1piQXSvT5k10Mh34Qhcho7jQ0C+hQoPDeZgNmKjpjcNFd9NlOwhSMKQCniegJTC59GC9qxU+fwlpLvjkFBHXZ3zFiIRs3fAY3ADiMdSb1Ddo1xTuaebqjENiBCfC1hgFHI4fCBvHmVBCjaUTPAFZlinWTRUOtxe7v7dDqhmq4pwhieVV+g9mpKnJxI=') format('woff2'),
+  url('//at.alicdn.com/t/font_2218436_ozx9bx4pyoh.woff?t=1605865092928') format('woff'),
+  url('//at.alicdn.com/t/font_2218436_ozx9bx4pyoh.ttf?t=1605865092928') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+  url('//at.alicdn.com/t/font_2218436_ozx9bx4pyoh.svg?t=1605865092928#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 20px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-fenxiang:before {
+  content: "\e62f";
+}
+
+/* 分享图标 结束 */
+

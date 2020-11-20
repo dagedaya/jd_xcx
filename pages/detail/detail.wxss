@@ -176,12 +176,29 @@ swiper {
   opacity:0.4;
   border-radius: 20rpx;
 }
-
+/* 图标 开始 */
 .photo{
   float: left;
-  font-size:12px;
-  margin-left:18px;
+  font-size:10px;
+  margin-left:14px;
 }
+  /* button自带样式清除 */
+.goods_one button::after {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.goods_one button {
+  background-color: transparent !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  margin: 0 !important;
+  width: auto !important;
+  font-weight: 500 !important;
+  border-radius: none !important;
+}
+/* 图标结束 */
 
 
 

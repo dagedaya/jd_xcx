@@ -84,17 +84,19 @@
       <view class="iconfont icon-lunkuohua_zhuye1"></view>
       <view class="iconfont icon-kefu"></view>
       <view class="iconfont icon-gouwuche"></view>
+      <button open-type="share"><view class="iconfont icon-fenxiang"></view></button>
     </span>
       <span>
       <view class="photo">主页</view>
       <view class="photo">客服</view>
       <view class="photo">购物车</view>
+     <view class="photo">分享</view>
     </span>
       <!-- <view class="goods_car_num">
         <span>0</span>
       </view> -->
     </view>
-    <view class="goods_half_half blue">加入购物车</view>
     <view class="goods_half_half green">前往付款</view>
+    <view class="goods_half_half blue" id="{{goods.goods_id}}" bindtap="cart">加入购物车</view>
   </view>
 </view>

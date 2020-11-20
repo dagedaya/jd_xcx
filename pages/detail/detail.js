@@ -31,6 +31,43 @@ cusImageLoad: function(e){
     that.setData(WxAutoImage.wxAutoImageCal(e));
 },
 
+//加入购物车
+cart:function(e){
+  let goods_id=e.currentTarget.id
+  let _this=this
+  wx.request({
+    url: 'http://jd.2004.com/api/Cart?goods_id='+goods_id,
+    success(res){
+      if(res.data.error==0){
+        wx.showToast({
+          title: '加入购物车成功',
+          icon: 'success',
+          duration: 2000//持续的时间
+        })
+      }else{
+        wx.showToast({
+          title: '加入购物车失败',
+          icon: 'success',
+          duration: 2000//持续的时间                                   
+        })
+      }
+    }
+  })
+},
+//分享功能
+onShareAppMessage(res){
+  console.log(res)
+  //判断触发的方式是否为按钮
+  if(res.from=="button"){
+    //参数
+    let uid = "111";
+    return{
+      title:"标题",
+      path:"/pages/dynamic/dynamic?uid="+uid
+    }
+  }
+},
+
   /**
    * 生命周期函数--监听页面加载
    */
