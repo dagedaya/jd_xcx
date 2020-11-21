@@ -4,7 +4,7 @@
     "pages/logs/logs",
     "pages/mime/mime",
     "pages/cart/cart",
-    "pages/order/order",
+    "pages/order-list/order-list",
     "pages/detail/detail",
     "pages/search/search"
   ],
@@ -29,7 +29,7 @@
         "selectedIconPath": "images/shopcart-select.png"
       },
       {
-        "pagePath": "pages/order/order",
+        "pagePath": "pages/order-list/order-list",
         "text": "订单",
         "iconPath": "images/order.png",
         "selectedIconPath": "images/order-select.png"

@@ -46,9 +46,45 @@ swiper.swiper {
   margin-top:15px;
 }
 
-/*分类*/
+/*分类 开始*/
+#home{
+  position: relative;
+  background-color: #eeeeee;
+  margin-bottom: 10px;
+}
+#home .top-bg{
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  height: 45px;
+  width: 100%;
+  background-color:goldenrod;
+  line-height: 45px;
+}
+#home .tabs{
+  position: relative;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+#home .tabs scroll-view {
+  white-space: nowrap;
+}
+#home .tabs scroll-view .tab-item{
+  display: inline-block;
+  padding: 0 6px;
+  color: #fff;
+  transition: all .3s;
+}
+#home .tabs scroll-view .tab-active{
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+#home .home{
+  position: relative;
+}
 
-.page-section-spacing{
+/* .page-section-spacing{
   margin-top: 50rpx;
 }
 .scroll-view_H{
@@ -69,7 +105,8 @@ swiper.swiper {
   height: 50rpx;
   font-size:12px;
   line-height:22px;
-}
+} */
+/* 分类结束 */
 /*列表*/
 
 view.text {

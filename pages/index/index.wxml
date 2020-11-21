@@ -40,10 +40,10 @@
     </swiper>
   </view>
 
-<!-- 分类 -->
-    <view class="page-section-spacing">
+<!-- 分类 开始-->
+    <!-- <view class="page-section-spacing"> -->
       <!-- scroll -->
-        <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="" style="width: 100%"> 
+        <!-- <scroll-view class="scroll-view_H" scroll-x="true" bindscroll="" style="width: 100%"> 
           <view id="demo1" class="scroll-view-item_H demo-text-1">全部</view>
           <view id="demo2"  class="scroll-view-item_H demo-text-2">手机</view>
           <view id="demo3" class="scroll-view-item_H demo-text-3">美食</view>
@@ -52,7 +52,24 @@
           <view id="demo3" class="scroll-view-item_H demo-text-3">男装</view>
           <view id="demo1" class="scroll-view-item_H demo-text-1">童装</view>
         </scroll-view>
+      </view> -->
+      <view id="home">
+  <topbar></topbar>
+  <view class="top-bg"></view>
+  <view class="tabs">
+    <scroll-view scroll-x>
+      <view wx:for="{{tabs.items}}" wx:key="item" data-index="{{index}}"
+        bindtap="handleTabClick" class="tab-item {{index==tabs.active?'tab-active':''}}">
+          {{item}}
       </view>
+    </scroll-view>
+  </view>
+  <view class="content">
+    <home />
+  </view>
+</view>
+
+<!-- 分类结束 -->
 
 
 <!-- 列表 -->

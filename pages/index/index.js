@@ -11,6 +11,13 @@ Page({
   //   canIUse: wx.canIUse('button.open-type.getUserInfo')
   // },
   data: {
+    //分类
+    tabs:{
+      items:[
+        '首页','手机','电脑办公','食品','生鲜','数码','家居厨具','母婴童装','男装','女装','运动'
+      ],
+      active:0
+    },
     // 轮播
     images: [
       '../../images/discount-banner.jpg',
@@ -26,6 +33,13 @@ Page({
     page:1,   //页表页号
     pagesize:10,//列表大小
   },
+    //分类
+    handleTabClick:function(e){
+      let index=e.target.dataset.index
+      this.setData({
+        'tabs.active':index
+      })
+    },
 
 
   swiperchange: function (e) {
@@ -176,7 +190,9 @@ Page({
     //   }
     // })
 
-
+  /**
+   * 生命周期函数--监听页面显示
+   */
     //   if (app.globalData.userInfo) {
     //     this.setData({
     //       userInfo: app.globalData.userInfo,
@@ -212,5 +228,13 @@ Page({
     //     hasUserInfo: true,
     //     name2:'haha',
     //   })
+  },
+  onShow() {
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
   }
 })
