@@ -14,6 +14,10 @@ Page({
    */
   //点击登录
   btnLogin:function(e){
+    // console.log(e)
+    //获取用户信息
+    let userInfo=e.detail.userInfo
+    console.log(userInfo)
     wx.login({
       success (res) {
         console.log(res)
@@ -21,8 +25,11 @@ Page({
           //发起网络请求
           wx.request({
             url: 'http://jd.2004.com/api/getcode',
+            method:'post',
+            header:{'content-type':'application/json'},
             data: {
-              code: res.code
+              code: res.code,
+              u:userInfo
             },
             //本地存储token
             success(res){
