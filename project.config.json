@@ -60,7 +60,7 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/login/login",
+          "name": "测试登录",
           "pathName": "pages/login/login",
           "query": "",
           "scene": null
@@ -68,6 +68,12 @@
         {
           "name": "个人中心登录",
           "pathName": "pages/mime/mime",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "购物车列表",
+          "pathName": "pages/cart/cart",
           "query": "",
           "scene": null
         }

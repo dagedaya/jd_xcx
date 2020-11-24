@@ -8,56 +8,80 @@ Page({
     statusBarHeight: app.globalData.statusBarHeight,
     isCartEmpty: false, // 购物车是否有商品
     hasAllSelected: false, // 是否全选
+    // list:[{
+    //   id:217,
+    //   title:'电脑',
+    //   price:50000,
+    //   goods_img:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1995828843,2702670661&fm=26&gp=0.jpg'
+    // }],
     cartList: [{
-        merchantInfo: {
-          merchantId: "111",
-          name: "这是我家的小小小店",
-          icon: '/assets/images/cart_none_a.png',
-          hasSelected: false,
-          isActivity: true
-        },
-        goodsList: [{
-          id: 1111,
-          merchantId: "111",
-          title: '格力迷你静音台式电风扇',
-          image: '/assets/images/cart_none_a.png',
-          quantity: 4,
-          price: 100,
-          quantityUpdatable: false,
-          hasSelected: false
-        }]
+      merchantInfo: {
+        merchantId: "111",
+        name: "这是我家的小小小店",
+        icon: '/assets/images/cart_none_a.png',
+        hasSelected: false,
+        isActivity: true
       },
-      {
-        "merchantInfo": {
-          "merchantId": "222",
-          "name": "这是我家的小小小店",
-          "icon": '/assets/images/cart_none_a.png',
-          "hasSelected": false,
-          "quantityUpdatable": false,
-          "isActivity": false
-        },
-        "goodsList": [{
-            "id": 2221,
-            "merchantId": "222",
-            "title": '格力迷你静音台式电风扇',
-            "image": '/assets/images/cart_none_a.png',
-            "quantity": 4,
-            "price": 130,
-            "quantityUpdatable": false,
-            "hasSelected": false
-          },
-          {
-            "id": 22222,
-            "merchantId": "222",
-            "title": '格力家用台式电风扇',
-            "image": '/assets/images/cart_none_a.png',
-            "quantity": 1,
-            "price": 320,
-            "quantityUpdatable": false,
-            "hasSelected": false
-          }
-        ]
+      goodsList: [{
+        merchantId: "111",
+        quantity: 4,
+        quantityUpdatable: false,
+        hasSelected: false,
+        id:'217',
+        title:'电脑',
+        price:50000,
+        goods_img:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1995828843,2702670661&fm=26&gp=0.jpg'
+      },]
+    },{
+      merchantInfo: {
+        merchantId: "112",
+        name: "这是我家的小小小店",
+        icon: '/assets/images/cart_none_a.png',
+        hasSelected: false,
+        isActivity: true
       },
+      goodsList: [{
+        merchantId: "111",
+        quantity: 4,
+        quantityUpdatable: false,
+        hasSelected: false,
+        id:'218',
+        title:'电脑',
+        price:50000,
+        goods_img:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1995828843,2702670661&fm=26&gp=0.jpg'
+      },]
+    },
+      // {
+      //   "merchantInfo": {
+      //     "merchantId": "222",
+      //     "name": "这是我家的小小小店",
+      //     "icon": '/assets/images/cart_none_a.png',
+      //     "hasSelected": false,
+      //     "quantityUpdatable": false,
+      //     "isActivity": false
+      //   },
+      //   "goodsList": [{
+      //       "id": 2221,
+      //       "merchantId": "222",
+      //       "title": '格力迷你静音台式电风扇',
+      //       "image": '/assets/images/cart_none_a.png',
+      //       "quantity": 4,
+      //       "price": 130,
+      //       "quantityUpdatable": false,
+      //       "hasSelected": false
+      //     },
+      //     {
+      //       "id": 22222,
+      //       "merchantId": "222",
+      //       "title": '格力家用台式电风扇',
+      //       "image": '/assets/images/cart_none_a.png',
+      //       "quantity": 1,
+      //       "price": 320,
+      //       "quantityUpdatable": false,
+      //       "hasSelected": false
+      //     }
+      //   ]
+      // },
     ],
     totalPrice: 0,
     recommends: [{
@@ -76,6 +100,28 @@ Page({
         price: "¥88.88"
       }
     ]
+  },
+  onLoad:function(){
+    let _this=this;
+    let token=wx.getStorageSync('token')
+    wx.request({
+      url:'http://jd.2004.com/api/list',
+      data:{
+        token:token,
+      },
+      success(res){
+        console.log('.............................')
+        if(res.data.error==0){
+          console.log(_this.data.cartList)
+          console.log(res.data.data.list)
+          _this.setData({
+            cartList:res.data.data.list,
+            // merchantInfo:res.data.data.list.merchantInfo,
+            // goodsList:res.data.data.list.goodsList
+          })
+        }
+      }
+    })
   },
    /**
    * 由商家列表项选择商品组事件

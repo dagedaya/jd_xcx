@@ -38,9 +38,9 @@
 					<view>
 						<view style="font-size:30rpx;color:#3C3C3C;">{{goods.title}}</view>
  
-						<view style="margin-top:10rpx;">
+						<!-- <view style="margin-top:10rpx;">
 							<text class="goods-desc">静音自动摇头上下<text class="down"/></text>
-						</view>
+						</view> -->
 					</view>
  
 					<!-- 商品价格、数量布局 -->
@@ -48,7 +48,6 @@
 						<view>
 							<text>￥{{goods.price}}</text>
 						</view>
- 
 						<view class="goods-quantity-switch-box">
  
 							<view class="goods-quantity-show" bind:tap="showUpdateQuantityDialog" wx:if="{{goods.quantityUpdatable}}">
@@ -73,6 +72,7 @@
 		</view>
  
 	</view>
+
  
 	<view style="height:120rpx"></view>
  
