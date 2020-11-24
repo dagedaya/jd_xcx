@@ -33,10 +33,15 @@ cusImageLoad: function(e){
 
 //加入购物车
 cart:function(e){
+  let access_token=wx.getStorageSync('token')
+  // console.log(getStorage('token'))
   let goods_id=e.currentTarget.id
   let _this=this
   wx.request({
     url: 'http://jd.2004.com/api/Cart?goods_id='+goods_id,
+    data:{
+      token:access_token
+    },
     success(res){
       if(res.data.error==0){
         wx.showToast({
@@ -73,6 +78,7 @@ onShareAppMessage(res){
    */
   onLoad: function (options) {
     let goods_id = options.id;
+    //获取token
     let access_token=wx.getStorageSync('token')
     // console.log(goods_id)
     let _this=this;

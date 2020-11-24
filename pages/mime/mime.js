@@ -17,10 +17,10 @@ Page({
     // console.log(e)
     //获取用户信息
     let userInfo=e.detail.userInfo
-    console.log(userInfo)
+    // console.log(userInfo)
     wx.login({
       success (res) {
-        console.log(res)
+        // console.log(res)
         if (res.code) {
           //发起网络请求
           wx.request({
@@ -33,6 +33,7 @@ Page({
             },
             //本地存储token
             success(res){
+              let user_id=res.data
               wx.setStorageSync('token', res.data.data.token)
             },
           })
