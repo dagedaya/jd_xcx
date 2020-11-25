@@ -19,13 +19,42 @@ Page({
       autoplay: true,
       interval: 3000,
       duration: 1200,
-      iscollect: true
+      iscollect: false
   },
-  collect: function(){
-    this.setData({
+  //取消收藏
+  collect1:function(e){
+    let _this=this
+    let goods_id=e.currentTarget.dataset.goodsid
+    let token=wx.getStorageSync('token')
+    wx.request({
+      url: apihost+'/api/collect1?id='+goods_id+'&token='+token,
+      success(res){
+        _this.setData({
+          status:res.data.msg,
+        })
+      }
+    })
+  },
+  //收藏
+  collect2:function(e){
+    let _this=this
+    let goods_id=e.currentTarget.dataset.goodsid
+    let token=wx.getStorageSync('token')
+    wx.request({
+      url: apihost+'/api/collect?id='+goods_id+'&token='+token,
+      success(res){
+        _this.setData({
+          status1:res.data.msg
+        })
+      }
+    })
+  },
+  collect: function(e){
+
+    this.setData({                                                                                                           
         iscollect: !this.data.iscollect
     })
-    console.log(this.data.iscollect);
+    // console.log(this.data.iscollect);
 },
 cusImageLoad: function(e){
     var that = this;
@@ -78,6 +107,7 @@ onShareAppMessage(res){
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // this.call()
     let goods_id = options.id;
     //获取token
     let access_token=wx.getStorageSync('token')
@@ -86,14 +116,14 @@ onShareAppMessage(res){
     wx.request({
         url:apihost+'/api/goods_details?id='+goods_id,  //仅为示例，并非真实的接口地址
         data:{
-          goods_id:goods_id,
           access_token: access_token,
         },
         success(res){
             console.log(res)
           _this.setData({
             // imgUrls:[res.data.goods_img],
-            goods:res.data,
+            goods:res.data.data.list,
+            iscollect:res.data.data.iscollect
           })
         },
         fail:function () {
@@ -167,5 +197,29 @@ onShareAppMessage(res){
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 客服图标打电话 
+   */
+  call:function(){
+    wx.makePhoneCall({
+      phoneNumber: '18330024560' //仅为示例，并非真实的电话号码
+    })  
+  },
+  /**
+   * 购物车图标跳转
+   */
+  cartInfo:function(){
+   wx.switchTab({
+     url: '/pages/cart/cart',
+   })
+  },
+  /**
+   * 主页图标跳转
+   */
+  home:function(){
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   }
 })

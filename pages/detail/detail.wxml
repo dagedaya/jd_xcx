@@ -17,12 +17,12 @@
   <view class="goods_title">
     <text>{{goods.goods_name}}</text>
     <view class="goods_collect_btn" bindtap="collect">
-      <view wx:if="{{iscollect}}">
+      <view wx:if="{{iscollect}}" bindtap="collect1" data-goodsid="{{goods.goods_id}}">
         <image src="../../images/icon-aixin.png" class="goods_collect_img"></image>
       </view>
-      <view wx:else>
+      <view wx:else  bindtap="collect2" data-goodsid="{{goods.goods_id}}">
         <image src="../../images/icon-aixin1.png" class="goods_collect_img"></image>
-      </view>
+      </view >
       <text wx:if="{{iscollect}}">已收藏</text>
       <text wx:else>收藏</text>
     </view>
@@ -73,7 +73,7 @@
 <view class="goods_detail">
   <view class="goods_detail_title">商品详情</view>
   <view>
-    <image bindload="cusImageLoad" src="../../image/IMG_0466.jpg" style="width:{{imageWidth}};height:{{imageHeight}}"></image>
+    <image bindload="cusImageLoad" src="{{goods.desc_img}}" style="width:{{imageWidth}};height:{{imageHeight}}"></image>
   </view>
 </view>
 <view class="goods_bottom"></view>
@@ -81,15 +81,15 @@
   <view>
     <view class="goods_one">
       <span>
-      <view class="iconfont icon-lunkuohua_zhuye1"></view>
-      <view class="iconfont icon-kefu"></view>
-      <view class="iconfont icon-gouwuche"></view>
+      <view class="iconfont icon-lunkuohua_zhuye1" bindtap="home"></view>
+      <view class="iconfont icon-kefu" bindtap="call"></view>
+      <view class="iconfont icon-gouwuche" bindtap="cartInfo"></view>
       <button open-type="share"><view class="iconfont icon-fenxiang"></view></button>
     </span>
       <span>
-      <view class="photo">主页</view>
-      <view class="photo">客服</view>
-      <view class="photo">购物车</view>
+      <view class="photo" bindtap="home">主页</view>
+      <view class="photo" bindtap="call">客服</view>
+      <view class="photo" bindtap="cartInfo">购物车</view>
      <view class="photo">分享</view>
     </span>
       <!-- <view class="goods_car_num">
