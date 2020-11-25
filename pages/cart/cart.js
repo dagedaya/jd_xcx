@@ -1,4 +1,5 @@
 const app = getApp()
+const apihost=app.globalData.apiUrl;//本地
 Page({
  
   /**
@@ -105,7 +106,7 @@ Page({
     let _this=this;
     let token=wx.getStorageSync('token')
     wx.request({
-      url:'http://jd.2004.com/api/list',
+      url:apihost+'/api/list',
       data:{
         token:token,
       },

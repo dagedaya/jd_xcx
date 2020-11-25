@@ -30,7 +30,7 @@
  
 			<view class="goods-info">
 				<view>
-					<image src="http://img14.360buyimg.com/n1/jfs/t20386/340/2137984030/165902/9dcb0893/5b45c9feN76c521a9.jpg" style="width:200rpx;height:200rpx;border-radius:10rpx;" mode="widthFix"></image>
+					<image src="{{goods.goods_img}}" style="width:200rpx;height:200rpx;border-radius:10rpx;" mode="widthFix"></image>
 				</view>
 				<!-- 商品信息部分布局 -->
 				<view class="goods-info-details">

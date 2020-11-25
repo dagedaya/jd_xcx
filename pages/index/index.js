@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const apihost=app.globalData.apiUrl;//本地
 
 Page({
   // data: {
@@ -72,7 +73,7 @@ Page({
     let _this=this;
     //发起网络请求
     wx.request({
-      url:'http://jd.2004.com/api/GoodsList',
+      url:apihost+'/api/GoodsList',
       data:{
         page:_this.data.page,
         size:_this.data.pagesize,

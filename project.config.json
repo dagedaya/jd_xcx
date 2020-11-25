@@ -37,7 +37,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.0.4",
+  "libVersion": "2.14.0",
   "appid": "wxa664d47bc05fde74",
   "projectname": "shop_2004",
   "debugOptions": {
@@ -74,6 +74,12 @@
         {
           "name": "购物车列表",
           "pathName": "pages/cart/cart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/index/index",
           "query": "",
           "scene": null
         }

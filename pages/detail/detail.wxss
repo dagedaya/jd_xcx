@@ -199,7 +199,7 @@ swiper {
   border-radius: none !important;
   width:35px !important;
   height:32px !important;
-  border:1px solid red;
+  /* border:1px solid red; */
 }
 /* 图标结束 */
 

@@ -3,6 +3,7 @@ var util = require('../../utils/util.js')
 var request = require('../../utils/https.js')
 var uri = 'memberapi/memberDetail'
 var app = getApp()
+const apihost=app.globalData.apiUrl;//本地
 var Info = {}
 Page({
   data: {
@@ -24,7 +25,7 @@ Page({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'http://jd.2004.com/api/getcode',
+            url: apihost+'/api/getcode',
             method:'post',
             header:{'content-type':'application/json'},
             data: {

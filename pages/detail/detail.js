@@ -2,6 +2,7 @@
 
 var WxAutoImage = require('../../static/detailImage.js');
 var app = getApp();
+const apihost=app.globalData.apiUrl;//本地
 
 Page({
   /**
@@ -38,7 +39,7 @@ cart:function(e){
   let goods_id=e.currentTarget.id
   let _this=this
   wx.request({
-    url: 'http://jd.2004.com/api/Cart?goods_id='+goods_id,
+    url: apihost+'/api/Cart?goods_id='+goods_id,
     data:{
       token:access_token
     },
@@ -83,7 +84,7 @@ onShareAppMessage(res){
     // console.log(goods_id)
     let _this=this;
     wx.request({
-        url:'http://jd.2004.com/api/goods_details?id='+goods_id,  //仅为示例，并非真实的接口地址
+        url:apihost+'/api/goods_details?id='+goods_id,  //仅为示例，并非真实的接口地址
         data:{
           goods_id:goods_id,
           access_token: access_token,
