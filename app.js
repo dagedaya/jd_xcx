@@ -35,7 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    apiUrl:"https://2004dageda.wwwhb.wenao.top",
-    // apiUrl:"http://jd.2004.com",
+    // apiUrl:"https://2004dageda.wwwhb.wenao.top",
+    apiUrl:"http://jd.2004.com",
   }
 })

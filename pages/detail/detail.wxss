@@ -71,7 +71,7 @@ swiper {
   position: absolute;
   width: 40px;
   height: 40px;
-  background-image: url(../../image/brand.png);
+  /* background-image: url(../../image/brand.png); */
   background-size: 40px 40px;
   background-repeat: no-repeat;
   background-position: center;
