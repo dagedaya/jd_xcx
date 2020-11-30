@@ -9,12 +9,9 @@
 
 <!-- 列表开始 -->
 <view class="center">
+  <checkbox-group bindchange="selectGoods">
   <view class="checkboxInfo" wx:for="{{goodsList}}">
-    <checkbox-group bindtap="selectAdd" data-goodsid="{{item.goods_id}}">
-      <label class="checkbox">
-        <checkbox value="1" checked="{{item.checked}}"/>
-      </label>
-    </checkbox-group>
+    <checkbox value="{{item.goods_id}}" checked="{{item.checked}}"> </checkbox>
     <view class="imgInfo">
       <image src="{{item.goods_img}}"></image>
     </view>
@@ -35,7 +32,7 @@
       </view>
     </view>
   </view>
-
+</checkbox-group>
 </view>
 <!-- 列表结束 -->
 
@@ -44,7 +41,7 @@
   <view class="select_all">
     <checkbox-group bindchange="selectAll">
       <label class="checkbox1">
-        <checkbox>全选</checkbox>
+        <checkbox value='1' checked="{{selectAll}}">全选</checkbox>
       </label>
     </checkbox-group>
     <view class="all_price">

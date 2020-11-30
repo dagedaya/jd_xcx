@@ -34,23 +34,6 @@ Page({
         totalprice:totalprice,
       })
     },
-    /**单选 */
-    selectAdd:function(res){
-      let totalprice=0
-      let goods_id=res.currentTarget.dataset.goodsid;
-      let _this=this
-      _this.data.goodsList.forEach((value)=>{
-        if(value.goods_id==goods_id){
-          value.checked=!value.checked
-        }
-        if(value.checked){
-          totalprice +=value.goods_num*value.shop_price
-        }
-      })
-      _this.setData({
-        totalprice:totalprice,
-      })
-    },
     /**减一件商品 */
     decr:function(res){
       let goods_id=res.currentTarget.dataset.goodsid;
@@ -74,19 +57,33 @@ Page({
     },
     /**删除所有商品 */
     delete:function(){
-      let token=wx.getStorageSync('token')
-      wx.request({
-        url: apihost+'/api/delete?token='+token,
-        success(res){
-          if(res.data.error==0){
-            wx.showToast({
-              title: '删除成功',
-              icon:'success',
-              duration:2000
+       let token=wx.getStorageSync('token')
+       wx.showModal({
+         title:'提示',
+         content:'是否删除？',
+         success(res){
+          if(res.confirm){  //点击确定处理
+            wx.request({
+              url: apihost+'/api/delete?token='+token,
+              success(res){
+                if(res.data.error==0){
+                  wx.showToast({
+                    title: '删除成功',
+                    icon:'success',
+                    duration:2000
+                  })
+                }else if(res.cancel){
+                  wx.showToast({
+                    title: '取消成功',
+                    icon:'success',
+                    duration:2000
+                  })
+                }
+              }
             })
           }
-        }
-      })
+         }
+       })
     },
     /**单独删除 */
     del:function(res){
@@ -102,6 +99,30 @@ Page({
             })
           }
         }
+      })
+    },
+    /**购物车全部单选就全选 */
+    selectGoods:function(e){
+      //获取checkbox中选中的value
+      let goods=e.detail.value;
+      //获取当前页面商品列表
+      let list=this.data.goodsList;
+      let total=0
+      list.forEach(item=>{
+        item.checked=false;
+        goods.forEach(item2=>{
+          if(item.goods_id==item2){
+            item.checked=true; //记录选中的状态
+            total+=item.shop_price*item.goods_num;
+          }
+        })
+      })
+      let isselectAll=list.every(function(item){
+        return item.checked;
+      })
+      this.setData({
+        totalprice:total,
+        selectAll:isselectAll
       })
     },
     /**购物车列表 */
