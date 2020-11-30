@@ -81,7 +81,7 @@ cart:function(e){
         })
       }else{
         wx.showToast({
-          title: '加入购物车失败',
+          title: '又加入了一条',
           icon: 'success',
           duration: 2000//持续的时间                                   
         })

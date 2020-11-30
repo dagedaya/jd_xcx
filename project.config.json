@@ -88,6 +88,12 @@
           "pathName": "pages/detail/detail",
           "query": "id=217",
           "scene": null
+        },
+        {
+          "name": "练习布局",
+          "pathName": "pages/cart1/cart1",
+          "query": "id=217",
+          "scene": null
         }
       ]
     }

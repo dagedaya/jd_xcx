@@ -1,0 +1,100 @@
+/* pages/cart1/cart1.wxss */
+.all{
+  background-color: #EDEDED;
+  height:1500rpx;
+}
+.top{
+  background-color: #EDEDED;
+  height:80rpx;
+  line-height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.top text{
+  padding-left: 20rpx;
+  font-size:35rpx;
+}
+.top text{
+  padding-right:20rpx;
+}
+.center{
+  background-color: #ffffff;
+}
+.center .checkboxInfo .imgInfo image{
+  width:200rpx;
+  height:200rpx;
+}
+.center .checkboxInfo{
+  display:flex;
+  align-items: center;
+  margin-left: 20rpx;
+}
+.priceInfo{
+  display:flex;
+}
+.priceInfo .number input{
+  width:30rpx;
+}
+.priceInfo .number{
+  display: flex;
+}
+.goodsInfo .goodsname{
+  font-size:32rpx;
+  font-weight: bold;
+  line-height: 50rpx;
+}
+.goodsInfo .goodsname1{
+  font-size:30rpx;
+  line-height: 50rpx;
+}
+.priceInfo .price{
+  color:red;
+}
+.number{
+  margin-left:200rpx;
+  background-color: #EDEDED;
+  width:140rpx;
+  border-radius:15rpx;
+}
+.number .d{
+  margin-left:30rpx;
+}
+.number input{
+  margin-left: 14rpx;
+}
+.bottomIfno .select_all{
+  display: flex;
+  position:fixed;
+  bottom:30rpx;
+  align-items: center;
+  width:1000rpx;
+  background-color: #ffffff;
+  height:100rpx;
+}
+.bottomIfno .all_price{
+  margin-left:90rpx;
+  color:red;
+  font-size:35rpx;
+}
+.money{
+  color:black;
+}
+.checkbox1 checkbox{
+  font-size:20px;
+  line-height: 30rpx;
+  margin-left:20rpx;
+}
+.bottomIfno .count{
+  margin-left:80rpx;
+  background-color: goldenrod;
+  padding:15rpx 15rpx;
+  border-radius:15rpx;
+  font-size:35rpx;
+}
+
+
+
+
+
+
+

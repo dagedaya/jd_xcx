@@ -1,0 +1,79 @@
+<!-- 全局页面开始 -->
+<view class="all">
+<!-- 头部开始 -->
+<view class="top">
+    <text>共×件商品</text>
+    <text>删除</text>
+</view>
+<!-- 头部结束 -->
+
+<!-- 列表开始 -->
+<view class="center">
+  <view class="checkboxInfo">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox">
+        <checkbox value="1" checked="{{false}}"/>
+      </label>
+    </checkbox-group>
+    <view class="imgInfo">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1995828843,2702670661&fm=26&gp=0.jpg"></image>
+    </view>
+    <view class="goodsInfo">
+      <view class="goodsname">小熊抱枕明星最爱冬季舒服抱枕</view>
+      <view class="goodsname1">规格：标准</view>
+      <view class="priceInfo">
+        <view class="price">$999</view>
+        <view class="number">
+          <view class="d">-</view>
+          <input value="9" />
+          <view class="d1">+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="checkboxInfo">
+    <checkbox-group bindchange="checkboxChange">
+      <label class="checkbox">
+        <checkbox value="1" checked="{{false}}"/>
+      </label>
+    </checkbox-group>
+    <view class="imgInfo">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1995828843,2702670661&fm=26&gp=0.jpg"></image>
+    </view>
+    <view class="goodsInfo">
+      <view class="goodsname">小熊抱枕明星最爱冬季舒服抱枕</view>
+      <view class="goodsname1">规格：标准</view>
+      <view class="priceInfo">
+        <view class="price">$999</view>
+        <view class="number">
+          <view class="d">-</view>
+          <input value="9" />
+          <view class="d1">+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+<!-- 列表结束 -->
+
+<!-- 底部开始 -->
+<view class="bottomIfno">
+  <view class="select_all">
+    <checkbox-group bindchange="selectAll">
+      <label class="checkbox1">
+        <checkbox>全选</checkbox>
+      </label>
+    </checkbox-group>
+    <view class="all_price">
+      <text class="money">总价：</text>￥999.99
+    </view>
+    <view class="count">
+      去结算
+    </view>
+  </view>
+</view>
+<!-- 底部结束 -->
+</view>
+<!-- 全局页面结束 -->
