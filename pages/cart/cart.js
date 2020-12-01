@@ -36,10 +36,21 @@ Page({
     },
     /**减一件商品 */
     decr:function(res){
+      let _this=this
       let goods_id=res.currentTarget.dataset.goodsid;
       wx.request({
         url: apihost+'/api/decr?goods_id='+goods_id,
-        
+        success(res){
+          console.log(res)
+          if(res.data.data.list<=0){
+            wx.showToast({
+              title: '不能再减少了',
+              icon:'none',
+              duration:2000
+            })
+          }
+          _this.getCartlist();
+        }
       })
     },
     /**添加一件商品 */
@@ -49,6 +60,7 @@ Page({
       wx.request({
         url: apihost+'/api/add?goods_id='+goods_id,
         success(res){
+          _this.getCartlist();
           _this.setData({
             addlist:res.data.data.list
           })
@@ -56,51 +68,84 @@ Page({
       })
     },
     /**删除所有商品 */
-    delete:function(){
-       let token=wx.getStorageSync('token')
-       wx.showModal({
-         title:'提示',
-         content:'是否删除？',
-         success(res){
-          if(res.confirm){  //点击确定处理
-            wx.request({
-              url: apihost+'/api/delete?token='+token,
-              success(res){
-                if(res.data.error==0){
-                  wx.showToast({
-                    title: '删除成功',
-                    icon:'success',
-                    duration:2000
-                  })
-                }else if(res.cancel){
-                  wx.showToast({
-                    title: '取消成功',
-                    icon:'success',
-                    duration:2000
+    delete:function(e){
+      let _this=this
+      let selectGoods=[];
+      let list=_this.data.goodsList;
+      let token=wx.getStorageSync('token')
+      list.forEach(item=>{
+        if(item.checked){ //选中的商品
+          selectGoods.push(item.goods_id)
+        }
+      })
+      if(selectGoods.length>0){
+        wx.showModal({
+          title:'提示',
+          content:'是否删除选中的商品？',
+          success(res){
+            if(res.confirm){
+              wx.request({
+                url: apihost+'/api/delete?token='+token,
+                method:'post',
+                data:{
+                  goods_id:selectGoods.toString(),
+                },
+                header:{
+                  'content-type':'application/json' // 默认值
+                },
+                success(res){
+                  _this.getCartlist();
+                  _this.setData({
+                    selectAll:false,
+                    totalprice:0
                   })
                 }
-              }
-            })
+              })
+            }else if(res.cancel){
+              console.log('取消了')
+            }
           }
-         }
-       })
+        })
+      }else{    //未选中商品
+        wx.showToast({
+          title: '请先选择要删除的商品',
+          icon: 'none',
+          duration: 2000
+        })
+      }
     },
     /**单独删除 */
     del:function(res){
+      let _this=this
       let goods_id=res.currentTarget.dataset.goodsid;
-      wx.request({
-        url: apihost+'/api/del?goods_id='+goods_id,
+      wx.showModal({
+        title:'提示',
+        content:'是否删除？',
         success(res){
-          if(res.data.error==0){
-            wx.showToast({
-              title: '删除成功',
-              icon:'success',
-              duration:2000
-            })
-          }
+         if(res.confirm){  //点击确定处理
+           wx.request({
+             url: apihost+'/api/del?goods_id='+goods_id,
+             success(res){
+              _this.getCartlist()
+               if(res.data.error==0){
+                 wx.showToast({
+                   title: '删除成功',
+                   icon:'success',
+                   duration:2000
+                 })
+               }else if(res.cancel){
+                 wx.showToast({
+                   title: '取消成功',
+                   icon:'success',
+                   duration:2000
+                 })
+               }
+             }
+           })
+         }
         }
       })
-    },
+   },
     /**购物车全部单选就全选 */
     selectGoods:function(e){
       //获取checkbox中选中的value
@@ -117,6 +162,7 @@ Page({
           }
         })
       })
+      //返回值为 布尔值  对数组中的每一项运行给定的函数，如果该函数每一项都返回true，则结果为true。
       let isselectAll=list.every(function(item){
         return item.checked;
       })

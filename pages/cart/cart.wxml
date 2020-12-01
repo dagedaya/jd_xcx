@@ -3,13 +3,13 @@
 <!-- 头部开始 -->
 <view class="top">
     <text>共{{count}}件商品</text>
-    <text bindtap="delete">全部删除</text>
+    <text bindtap="delete">选择删除</text>
 </view>
 <!-- 头部结束 -->
 
 <!-- 列表开始 -->
 <view class="center">
-  <checkbox-group bindchange="selectGoods">
+  <checkbox-group bindchange="selectGoods"> 
   <view class="checkboxInfo" wx:for="{{goodsList}}">
     <checkbox value="{{item.goods_id}}" checked="{{item.checked}}"> </checkbox>
     <view class="imgInfo">
